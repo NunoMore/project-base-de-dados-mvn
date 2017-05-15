@@ -6,15 +6,19 @@ import java.util.HashMap;
 import io.altar.jseproject.model.Entity;
 import io.altar.jseproject.stateinterface.State;
 
-public class EntityRepository <E extends Entity> { //T sera product ou shelf
+public class EntityRepository <E extends Entity> { //E sera product ou shelf
 
 	private HashMap<Long, E> m1 = new HashMap<>();
 	private long maiorId = 0;
 	
+	public long getMaiorId() {
+		return maiorId;
+	}
+	
 	private Long nextId(){ 
 		return ++maiorId;
 	}
-	
+
 	public E get(long id){
 		return this.m1.get(id);
 	}
@@ -25,7 +29,7 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 		return e.getId();
 	}
 	
-	public Collection<E> consult(){ //nao faz sentido existir penso mas enfim...
+	public Collection<E> consult(){ 
 		return this.m1.values();
 	}
 	
@@ -33,7 +37,7 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 		this.m1.get(id).show();
 	}
 	
-	public void edit(String entidade){
+	public void edit(String entidade){ // not used...
 	}
 	
 	public void remove(long Id){
