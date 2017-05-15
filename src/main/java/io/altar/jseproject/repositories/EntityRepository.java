@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import io.altar.jseproject.model.Entity;
+import io.altar.jseproject.stateinterface.State;
 
 public class EntityRepository <E extends Entity> { //T sera product ou shelf
 
@@ -19,7 +20,6 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 	}
  
 	public Long create(E e) {
-		
 		e.setId(this.nextId());
 		this.m1.put(e.getId(), e);
 		return e.getId();
@@ -29,40 +29,15 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 		return this.m1.values();
 	}
 	
-	public void consult( String entidade){
-		
-		if (has(entidade)){
-			String msg = "\nQual o ID do(a) "+ entidade +" a consultar?";
-			long id = checkId(msg);
-			get(id).show();
-		}
+	public void consult( long id){
+		this.m1.get(id).show();
 	}
 	
-	public void edit(String entidade){  
-		
-		if (has(entidade)){
-			String msg = "\nQual o ID do(a) "+ entidade + " a editar?";
-			long id = checkId(msg);
-			get(id).update();
-		}
-		printList(entidade);
+	public void edit(String entidade){
 	}
 	
-	public void remove(String entidade){
-
-		if (has(entidade)){
-			String msg = "\nQual o ID do(a) "+ entidade +" a remover?";
-			long productId = checkId(msg);
-			
-			boolean keep = Entity.keepValue();
-			if (!keep) {
-				System.out.println("\nHouve remocao!");
-				this.m1.remove(productId);
-			}else {
-				System.out.println("\nOperacao anulada!");
-			}
-		}
-		printList(entidade);
+	public void remove(long Id){
+		this.m1.remove(Id);
 	}
 	
 	public long checkId(String message){
@@ -70,12 +45,12 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 		long id = 0; //se nao houver id ele retorna 0. 
 		if (maiorId != 0) {
 			System.out.println(message);
-			id = Entity.checkInputLong();
+			id = State.checkInputLong();
 			
 			while(get(id) == null) {
 				System.out.println("\nO ID introduzido nao existe..."
 									+ "\nEscolha um ID que exista!");
-				id = Entity.checkInputLong();
+				id = State.checkInputLong();
 			}
 		}
 		return id;
@@ -83,7 +58,7 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 	
 	public void printList(String entidade){ //produtos ou prateleiras
 		//emite lista de entidades
-		if (has(entidade)) {
+		if (has()) {
 			System.out.println("\nLista de " + entidade + "s:");
 			for (long i = 1; i <= maiorId; i++) {
 				if (get(i)!=null) {
@@ -96,7 +71,7 @@ public class EntityRepository <E extends Entity> { //T sera product ou shelf
 		}
 	}
 	
-	public boolean has(String entidade){ //produto ou prateleira
+	public boolean has(){ //produto ou prateleira
 		if (consult().size() == 0) {
 			return false;
 		} else{
