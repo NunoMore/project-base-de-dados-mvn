@@ -59,9 +59,6 @@ public class State09EditShelf extends State{
 			} else {
 				System.out.println("\nNao existem produtos! - 0");
 			}
-			
-		} else{
-			System.out.println("Nao existem prateleiras!");
 		}
 		
 		shelfRepository.printList(entidade);

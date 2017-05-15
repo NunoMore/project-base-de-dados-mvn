@@ -11,6 +11,13 @@ public class State01MainMenu extends State{
 		
 		int[] validOptions = {1,2,3};
 		int option = checkOptions(validOptions);
+		
+		if (option == 1) {
+			productRepository.printList("produto");
+		} else if (option == 2) {
+			shelfRepository.printList("prateleira");
+		}
+		
 		return option-1;
     }
 }

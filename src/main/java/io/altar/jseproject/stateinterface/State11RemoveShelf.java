@@ -19,8 +19,6 @@ public class State11RemoveShelf extends State{
 			}else {
 				System.out.println("\nOperacao anulada!");
 			}
-		} else{
-			System.out.println("Nao existem prateleiras!");
 		}
 		
 		shelfRepository.printList(entidade);

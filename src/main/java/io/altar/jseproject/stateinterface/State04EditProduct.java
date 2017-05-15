@@ -48,9 +48,6 @@ public class State04EditProduct extends State{
 				System.out.println("Introduza o novo valor de desconto:");
 				item.setDiscount( checkInputInt() );
 			}
-			
-		} else{
-			System.out.println("Nao existem produtos!");
 		}
 		
 		productRepository.printList(entidade);

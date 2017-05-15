@@ -19,8 +19,6 @@ public class State06RemoveProduct extends State{
 			}else {
 				System.out.println("\nOperacao anulada!");
 			}
-		} else{
-			System.out.println("Nao existem produtos!");
 		}
 		
 		productRepository.printList(entidade);

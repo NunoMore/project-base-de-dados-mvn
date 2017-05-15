@@ -1,7 +1,8 @@
 package io.altar.jseproject.stateinterface;
 
 public class FSM { //finite state machine
-	private static State[] states = {	new State01MainMenu(), 			//0
+	private static State[] states = {	//new State						//Index
+										new State01MainMenu(), 			//0
     									new State02ProductMenu(), 		//1
     									new State03CreateProduct(),			//2
     									new State04EditProduct(),			//3
@@ -14,7 +15,8 @@ public class FSM { //finite state machine
     									new State11RemoveShelf(),			//10
     								};
 	
-    private static Integer[][] transition = {	{1, 6, null},  			//0 
+    private static Integer[][] transition = {	//next State			//current State
+												{1, 6, null},  			//0 
 		    									{2, 3, 4, 5, 0}, 		//1
     											{1} ,{1}, {1}, {1},			//2, 3, 4, 5
     											{7, 8, 9, 10, 0}, 		//6
@@ -33,7 +35,7 @@ public class FSM { //finite state machine
 		}
     }
     
-    public static void on() {
+    public static void main(String[] args) {
     	currentState = 0;
     	int next = states[currentState].doAction();
     	changeState(next);

@@ -1,18 +1,16 @@
 package io.altar.jseproject.stateinterface;
 
 import io.altar.jseproject.model.Product;
-import io.altar.jseproject.repositories.ProductRepository;
 
 public class State03CreateProduct extends State{
 	
 	protected int doAction() {
 
 		String entidade = "produto";
-		ProductRepository/*<?>*/ repository = productRepository;
 		Product item = new Product();
 		int option = 1;
 	 	
-		item = repository.get(repository.create(item));
+		item = productRepository.get(productRepository.create(item));
 		
 		//coloca nome
 		System.out.println("\nQual o nome do produto?");
@@ -34,7 +32,7 @@ public class State03CreateProduct extends State{
 		doubleAux = checkInputDouble();
 		item.setPvp(doubleAux);
 		
-		repository.printList(entidade);
+		productRepository.printList(entidade);
 		return option-1;
     }
 	

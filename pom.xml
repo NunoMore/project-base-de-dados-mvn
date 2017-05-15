@@ -22,7 +22,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>io.altar.jseproject.test.Test</mainClass>
+							<mainClass>io.altar.jseproject.stateinterface.FSM</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
