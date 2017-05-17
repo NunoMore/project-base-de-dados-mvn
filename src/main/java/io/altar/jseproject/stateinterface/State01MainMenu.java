@@ -9,6 +9,10 @@ public class State01MainMenu extends State{
 				+ "\n2) Listar prateleiras"
 				+ "\n3) Sair");
 		
+		return processInput();
+    }
+	
+	public int processInput(){
 		int[] validOptions = {1,2,3};
 		int option = checkOptions(validOptions);
 		
@@ -19,5 +23,5 @@ public class State01MainMenu extends State{
 		}
 		
 		return option-1;
-    }
+	}
 }
