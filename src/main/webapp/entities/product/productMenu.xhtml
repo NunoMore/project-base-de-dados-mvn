@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 		
@@ -13,36 +9,31 @@
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-
-		<!-- Link para uso de animate.css (site com animacoes) -->
-		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
-
+		
 		<!-- Link para utilizar CSS3 -->
-		<h:outputStylesheet library="css" name="indexStyle.css"  />
+		<h:outputStylesheet library="css" name="productMenuStyle.css"  />
 		
 	</h:head>
 	<h:body>
-		
-		<DIV  class="row" >
-			<DIV class="col-md-12 mainTitle" >
-				<h:form>
-					<H1 id="welcome">PROJECT STOCK MANAGEMENT</H1>
-					<p:commandButton value="START" action="mainMenu" />
-				</h:form>
-			</DIV>
+	<div class="row">
+		<DIV class="col-md-12">
+			<h:form>
+				<h2 class="productMenuTitle">PRODUCT MENU</h2><br/>
+				
+				<h3>Por favor selecione uma das seguintes opcoes:</h3>
+				<h:commandLink value = "1) Criar produto" action = "productCreate" /><br/>
+				<h:commandLink value = "2) Editar produto" action = "productUpdate" /><br/>
+				<h:commandLink value = "3) Consultar produto" action = "productRead" /><br/>
+				<h:commandLink value = "4) Remover produto" action = "productRemove" /><br/>
+				<h:commandLink value = "« Back" action = "/mainMenu" />
+			</h:form>
 		</DIV>
-		
-		<!-- Ficheiro jQuery (online) -->
-		<script  
-			src="//code.jquery.com/jquery-3.2.0.min.js">
-		</script>
+	</div>
 
 		<!-- Ficheiro script online para Bootstrap -->
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 		</script>
-		
-		<h:outputScript library="javascript" name="script.js" />
-		
 	</h:body>
 </html>
+
